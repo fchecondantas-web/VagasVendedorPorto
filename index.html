@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendedor(a) Externo(a) - Porto Seguro | Checon Distribuidora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f0f7f2; color: #1a1a2e; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 16px; }
+        
+        .hero {
+            background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%);
+            color: #fff; text-align: center; padding: 48px 24px; border-radius: 20px;
+            margin-bottom: 24px; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -50%; right: -50%;
+            width: 100%; height: 100%; background: rgba(201, 168, 76, 0.08);
+            border-radius: 50%;
+        }
+        .badge {
+            display: inline-block; background: #c9a84c; color: #1a5632;
+            padding: 6px 16px; border-radius: 50px; font-size: 13px;
+            font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+        .hero h2 { font-size: 18px; font-weight: 300; opacity: 0.9; margin-bottom: 4px; }
+        .hero .location { font-size: 14px; opacity: 0.7; }
+        
+        section {
+            background: #fff; border-radius: 16px; padding: 28px 24px;
+            margin-bottom: 20px; box-shadow: 0 2px 12px rgba(26,86,50,0.08);
+        }
+        h3 {
+            font-size: 20px; font-weight: 700; color: #1a5632;
+            margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+        }
+        .grid-2 { display: grid; gap: 16px; }
+        @media (min-width: 600px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+        
+        ul { list-style: none; }
+        ul li { padding: 8px 0 8px 28px; position: relative; font-size: 15px; }
+        ul.checks li::before { content: '✓'; position: absolute; left: 0; color: #1a5632; font-weight: 700; font-size: 18px; }
+        ul.stars li::before { content: '⭐'; position: absolute; left: 0; font-size: 14px; }
+        
+        .cards { display: grid; gap: 12px; }
+        @media (min-width: 600px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+        .card {
+            background: #f0f7f2; border-radius: 12px; padding: 20px 16px;
+            text-align: center; border: 1px solid #d4e8da;
+        }
+        .card .icon { font-size: 28px; margin-bottom: 8px; }
+        .card .title { font-weight: 600; color: #1a5632; font-size: 15px; }
+        .card .desc { font-size: 13px; color: #555; margin-top: 4px; }
+        
+        .form-section { border: 2px solid #1a5632; }
+        form { display: flex; flex-direction: column; gap: 16px; }
+        label { font-weight: 600; font-size: 14px; color: #1a5632; }
+        label span { font-weight: 400; color: #888; font-size: 13px; }
+        input {
+            padding: 14px 16px; border: 2px solid #e0e0e0; border-radius: 10px;
+            font-size: 15px; font-family: inherit; transition: border-color 0.3s;
+            width: 100%;
+        }
+        input:focus { outline: none; border-color: #1a5632; }
+        input[type="file"] { padding: 10px; background: #fafafa; }
+        button {
+            background: linear-gradient(135deg, #1a5632, #2d7a4a);
+            color: #fff; border: none; padding: 16px; border-radius: 12px;
+            font-size: 16px; font-weight: 700; font-family: inherit;
+            cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,86,50,0.3); }
+        button:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+        
+        .msg { padding: 14px; border-radius: 10px; font-size: 14px; font-weight: 500; text-align: center; display: none; }
+        .msg.success { background: #d4edda; color: #155724; display: block; }
+        .msg.error { background: #f8d7da; color: #721c24; display: block; }
+        
+        .whatsapp-btn {
+            position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px;
+            background: #25D366; color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; text-decoration: none;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.4); z-index: 999;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); } 70% { box-shadow: 0 0 0 16px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+        
+        footer { text-align: center; padding: 24px; color: #888; font-size: 13px; }
+        footer strong { color: #1a5632; }
+        .privacy { font-size: 12px; color: #888; text-align: center; margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="badge">📢 Estamos Contratando</div>
+            <h1>VENDEDOR(A) EXTERNO(A)</h1>
+            <h2>Checon Distribuidora</h2>
+            <p class="location">📍 Porto Seguro - BA · Distribuidora Exclusiva Heineken</p>
+        </div>
+
+        <section>
+            <h3>📋 Sobre a oportunidade</h3>
+            <p style="font-size:15px;color:#444;">A Checon Distribuidora, distribuidora exclusiva do <strong>Grupo Heineken</strong> no extremo sul da Bahia, está expandindo o time comercial em Porto Seguro. Buscamos profissionais com perfil de rua, vontade de crescer e paixão por vendas.</p>
+        </section>
+
+        <div class="grid-2">
+            <section>
+                <h3>✅ Requisitos</h3>
+                <ul class="checks">
+                    <li>CNH categoria A/B</li>
+                    <li>Conhecimento de matemática básica</li>
+                    <li>Disponibilidade para viajar</li>
+                </ul>
+            </section>
+            <section>
+                <h3>⭐ Diferenciais</h3>
+                <ul class="stars">
+                    <li>Cursando ou concluiu Administração, Contabilidade ou Engenharia</li>
+                    <li>Experiência em vendas</li>
+                </ul>
+            </section>
+        </div>
+
+        <section>
+            <h3>🎯 O que oferecemos</h3>
+            <div class="cards">
+                <div class="card">
+                    <div class="icon">💰</div>
+                    <div class="title">Remuneração</div>
+                    <div class="desc">Salário fixo + comissão compatível com o mercado</div>
+                </div>
+                <div class="card">
+                    <div class="icon">🍺</div>
+                    <div class="title">Portfólio Premium</div>
+                    <div class="desc">Trabalhe com as marcas do Grupo Heineken</div>
+                </div>
+                <div class="card">
+                    <div class="icon">📈</div>
+                    <div class="title">Crescimento</div>
+                    <div class="desc">Oportunidades reais de desenvolvimento na empresa</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h3>📝 Candidate-se</h3>
+            <form id="jobForm">
+                <div>
+                    <label for="nome">Nome completo <span>*</span></label>
+                    <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+                </div>
+                <div>
+                    <label for="whatsapp">WhatsApp <span>*</span></label>
+                    <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(73) 99999-9999">
+                </div>
+                <div>
+                    <label for="curriculo - Obrigatório">Currículo <span>(PDF, DOC ou DOCX)</span></label>
+                    <input type="file" id="curriculo" name="curriculo" accept=".pdf,.doc,.docx">
+                </div>
+                <div id="msg" class="msg"></div>
+                <button type="submit" id="submitBtn">Enviar Candidatura</button>
+                <p class="privacy">Ao enviar, você autoriza o contato para processos seletivos da Checon Distribuidora.</p>
+            </form>
+        </section>
+
+        <footer>
+            <p><strong>Checon Distribuidora</strong> · Distribuidora exclusiva do Grupo Heineken no extremo sul da Bahia</p>
+            <p style="margin-top:4px;">&copy; 2026 Checon Distribuidora · Todos os direitos reservados</p>
+        </footer>
+    </div>
+
+    <a href="https://wa.me/5573981245850?text=Ol%C3%A1!%20Tenho%20interesse%20na%20vaga%20de%20Vendedor(a)%20Externo(a)%20em%20Porto%20Seguro." class="whatsapp-btn" target="_blank">💬</a>
+
+    <script>
+        const SCRIPT_URL = 	'https://script.google.com/macros/s/AKfycbxKgLe1Jna1K_Erkq2ysxusifoQ35zmIUjD4meVWppK8YzUR8EE0FvENomwxptyTVmtgg/exec';
+        // ↑ SUBSTITUA PELA URL DO SEU GOOGLE APPS SCRIPT (veja as instruções abaixo)
+
+        document.getElementById('jobForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const msg = document.getElementById('msg');
+            msg.style.display = 'none';
+            msg.className = 'msg';
+
+            const nome = document.getElementById('nome').value.trim();
+            const whatsapp = document.getElementById('whatsapp').value.trim();
+            const fileInput = document.getElementById('curriculo');
+
+            if (!nome || !whatsapp) {
+                msg.textContent = '❌ Preencha nome e WhatsApp para candidatar-se.';
+                msg.className = 'msg error';
+                msg.style.display = 'block';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = '⏳ Enviando...';
+
+            try {
+                let fileData = null;
+                let fileName = '';
+
+                if (fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    if (file.size > 5 * 1024 * 1024) {
+                        throw new Error('Arquivo muito grande. Máximo 5MB.');
+                    }
+                    fileName = file.name;
+                    fileData = await new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => resolve(reader.result.split(',')[1]);
+                        reader.onerror = reject;
+                        reader.readAsDataURL(file);
+                    });
+                }
+
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nome, whatsapp, fileData, fileName })
+                });
+
+                // no-cors mode doesn't return readable response, assume success
+                msg.textContent = '✅ Candidatura enviada com sucesso! Entraremos em contato.';
+                msg.className = 'msg success';
+                msg.style.display = 'block';
+                document.getElementById('jobForm').reset();
+
+            } catch (error) {
+                msg.textContent = '❌ ' + (error.message || 'Erro ao enviar. Tente novamente.');
+                msg.className = 'msg error';
+                msg.style.display = 'block';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Enviar Candidatura';
+            }
+        });
+    </script>
+</body>
+</html>
