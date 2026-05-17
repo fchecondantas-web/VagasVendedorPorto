@@ -178,7 +178,7 @@
     <a href="https://wa.me/5573981245850?text=Ol%C3%A1!%20Tenho%20interesse%20na%20vaga%20de%20Vendedor(a)%20Externo(a)%20em%20Porto%20Seguro." class="whatsapp-btn" target="_blank">💬</a>
 
     <script>
-        const SCRIPT_URL = 	'https://script.google.com/macros/s/AKfycbxKgLe1Jna1K_Erkq2ysxusifoQ35zmIUjD4meVWppK8YzUR8EE0FvENomwxptyTVmtgg/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/library/d/1vo53T8mHaGyWIqrjW-BO6tJG0BvO1ZAlbRQiUHxOn1FnwUc9gSHnMEix/2';
         // ↑ SUBSTITUA PELA URL DO SEU GOOGLE APPS SCRIPT (veja as instruções abaixo)
 
         document.getElementById('jobForm').addEventListener('submit', async function(e) {
@@ -220,12 +220,11 @@
                     });
                 }
 
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nome, whatsapp, fileData, fileName })
-                });
+		const response = await fetch(SCRIPT_URL, {
+    		    method: 'POST',
+    		    headers: { 'Content-Type': 'application/json' },
+    		    body: JSON.stringify({ nome, whatsapp, fileData, fileName })
+		});
 
                 // no-cors mode doesn't return readable response, assume success
                 msg.textContent = '✅ Candidatura enviada com sucesso! Entraremos em contato.';
